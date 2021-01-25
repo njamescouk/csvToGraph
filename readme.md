@@ -6,3 +6,4 @@ format.
 
 download zip using green code button at top right and open docs/CsvToGraph.html for more info.
 
+example output ![](https://github.com/njamescouk/csvToGraph/blob/main/doc/example.svg)
