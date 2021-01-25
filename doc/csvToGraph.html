@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Nick James" />
+  <title>csvToGraph version 1.0</title>
+  <style type="text/css">
+      /* code{white-space: pre-wrap;} */
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">body{background-color: LightYellow;max-width: 30em;margin-left: 10em;margin-right: auto;text-align: justify;}h1, h2{font-size: large;}h3, h4{font-size: medium;}pre, pre.programlisting, pre.synopsis {background-color: #FFFFFF;border: 1px solid #DDDDDD;color: #000000;float: left;line-height: 1;margin-top: 0.1em;min-width: 90%;padding: 1em 1em 1.5em;}p, h1, h2, h3 , h4, dl{clear: both;}div.insertedFile{border: 1px dotted darkgray;padding-left: 1em;padding-right: 1em;}a:link {color: #005000;}a:visited {color: #A05010;}a:focus {background-color: #EEEE99;color: #009900;}a:hover {background-color: #EEEE99;border: 1px dashed #DDDDDD;color: #009900;}a {border: 1px dotted #DDDDDD;text-decoration: none;}ul{list-style-type: square;}nav#TOC ul{list-style-type: none;padding-left: 2em;}nav#TOC>ul{padding-left: 0;}h1, h2{padding-top: 1em;}table{width: 40em;text-align: left;vertical-align: top;margin-top: 1em;margin-bottom: 1em;}tbody{vertical-align: top;}th{border: 1px solid grey;padding: .3em;}td{border: 1px dotted grey;padding: .3em;}tr.even{background-color: PaleGreen;}row[parity="even"]{background-color: PaleGreen;}p{margin-top: .25em;margin-bottom: .25em;}.warning{color: red;font-size: large;}</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">csvToGraph version 1.0</h1>
+<p class="author">Nick James</p>
+<p class="date">25-01-2021</p>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#installation"><span class="toc-section-number">2</span> Installation</a></li>
+<li><a href="#synopsis"><span class="toc-section-number">3</span> Synopsis</a></li>
+<li><a href="#action"><span class="toc-section-number">4</span> Action</a></li>
+<li><a href="#example"><span class="toc-section-number">5</span> Example</a></li>
+<li><a href="#how-hard-can-it-be"><span class="toc-section-number">6</span> How hard can it be?</a></li>
+<li><a href="#bugs"><span class="toc-section-number">7</span> Bugs</a></li>
+<li><a href="#programmers-notes"><span class="toc-section-number">8</span> Programmer’s Notes</a><ul>
+<li><a href="#source"><span class="toc-section-number">8.1</span> Source</a></li>
+</ul></li>
+<li><a href="#building"><span class="toc-section-number">9</span> Building</a></li>
+<li><a href="#colophon"><span class="toc-section-number">10</span> Colophon</a></li>
+</ul>
+</nav>
+<h1 id="introduction"><span class="header-section-number">1</span> Introduction</h1>
+<p>You have a table of numbers in csv format. You want a graph, draft quality but no messing about. <code>csvToGraph -o output.svg input.csv</code> is your friend.</p>
+<h1 id="installation"><span class="header-section-number">2</span> Installation</h1>
+<p>The zip file is rooted at csvToGraph. The bin directory has a windows executable and some runtime dlls you may need. The src directory has everything needed to compile csvToGraph, use build.bat if on windows, otherwise build.sh on linux. The test directory has some csv files and test.bat will flood the direcory with svg files.</p>
+<p>Windows - copy csvToGraph.exe somewhere handy, invoke as <code>some\where\handy\csvToGraph -o output.svg input.csv</code></p>
+<p>Linux - do build.sh, copy csvToGraph somewhere on your <code>$PATH</code>, invoke as <code>csvToGraph -o output.svg input.csv</code></p>
+<h1 id="synopsis"><span class="header-section-number">3</span> Synopsis</h1>
+<pre><code>usage: csvToGraph &lt;options&gt; [filename] 
+reads stdin or &lt;filename&gt; as csv numbers with 
+labels on the first line. On success it writes
+a graph with the first column as x values and
+the other columns plotted and labelled on the
+y axis. Output is formatted as svg, optionally
+written to -o &lt;outputFile&gt;
+
+If using -excl in conjunction with -xcol and /
+or -ycol note that exclusion happens first, then
+-xcol and / or -ycol are applied to what&#39;s left.
+Also take care not to assign to a column now out
+of bounds. Note that using both -xcol and -ycol
+excludes all other columns.
+
+options are:
+    -bld                show build time
+    -excl &lt;value&gt;       exclude column n
+    -h                  this help
+    -noax               don&#39;t show axes
+    -nohead             data doesn&#39;t have a header
+    -nojoin             don&#39;t join discontinuties in columns
+    -nokey              don&#39;t show key to graph
+    -nolin              don&#39;t show lines between points
+    -nopap              don&#39;t show graph paper
+    -nopt               don&#39;t show points
+    -o &lt;value&gt;          specify output file
+    -v                  version
+    -vb                 verbose - try this if your graph isn&#39;t showing up
+    -x0                 show x = 0
+    -xcol &lt;value&gt;       use column n as x values
+    -y0                 show y = 0
+    -ycol &lt;value&gt;       use column n as y values
+</code></pre>
+<h1 id="action"><span class="header-section-number">4</span> Action</h1>
+<p>csvToGraph takes a table (all rows have the same number of columns) and uses the first column as x values and plots the other columns as y values in a scatter chart.</p>
+<p>The data are converted to SVG and written (by default) to stdout. Use -o filename to write to a file. SVG files can be graphically edited with Inkscape or manually with a text editor. They can be viewed with modern web browsers.</p>
+<h1 id="example"><span class="header-section-number">5</span> Example</h1>
+<p><a href="example.csv">example.csv</a></p>
+<pre><code>&quot;x&quot;,&quot;x^2&quot;,&quot;x^3&quot;
+-2.000,4.000,-8.000
+-1.900,3.610,-6.859
+-1.800,3.240,-5.832
+-1.700,2.890,-4.913
+-1.600,2.560,-4.096
+-1.500,2.250,-3.375
+-1.400,1.960,-2.744
+-1.300,1.690,-2.197
+-1.200,1.440,-1.728
+
+...
+
+1.000,1.000,1.000
+1.100,1.210,1.331
+1.200,1.440,1.728
+1.300,1.690,2.197
+1.400,1.960,2.744
+1.500,2.250,3.375
+1.600,2.560,4.096
+1.700,2.890,4.913
+1.800,3.240,5.832
+1.900,3.610,6.859
+2.000,4.000,8.000
+</code></pre>
+<p><a href="example.svg">example.svg</a> <image style="max-width:600px" src="example.svg"></image></p>
+<h1 id="how-hard-can-it-be"><span class="header-section-number">6</span> How hard can it be?</h1>
+<ul>
+<li><p>My rows have different numbers of columns. This won’t work I’m afraid. A workaround is to pad the table out with empty fields in your csv, like so: <code>,,</code>. The graph will skip the gaps and join the dots. If you don’t want discontinuities joined up like that use <code>-nojoin</code>.</p></li>
+<li><p>You don’t want points? <code>csvToGraph -nopt -o output.svg input.csv</code></p></li>
+<li><p>You don’t want lines? <code>csvToGraph -nolin -o output.svg input.csv</code></p></li>
+<li><p>Axes? Graph paper? Key? <code>-noax</code>. <code>-nopap</code>. <code>-nokey</code>.</p></li>
+<li><p>My data doesn’t have headings although I’m well aware it should and this will result in untold harm. <code>-nohead</code>.</p></li>
+<li><p>Some of my columns have gaps in, please stop joining these points. <code>-nojoin</code></p></li>
+<li><p>Something weird has happened / my graph isn’t there. Try <code>-vb</code>.</p></li>
+<li><p>I can’t see x = 0 / y = 0. Use <code>-x0</code> and / or <code>-y0</code></p></li>
+<li><p>My x values are labels not numbers. This should be handled automatically <em>but</em> the assumption is that the labels are evenly spaced. If your first column is like <code>wk1 wk2 wk3</code> you should be ok; if it goes <code>wk1 wk10 wk13</code> then things won’t look very good.</p></li>
+<li><p>There’s a column of data I don’t want graphing. Use -excl column-number-to-exclude-counting-from-one. Note -excl n fails silently if your table has fewer than n columns.</p></li>
+<li><p>x axis data is in column n-counting-from-one. Use -xcol n.</p></li>
+<li><p>I only want to graph y data in column n-counting-from-one. Use -ycol n.</p></li>
+<li><p>I want to transpose x and y axes. Try -xcol 2 -ycol 1.</p></li>
+</ul>
+<p>Note that mixing and matching -excl and -ycol doesn’t really make sense, since -ycol excludes all columns except -xcol (default 1). Note also that <strong>exclusion happens first</strong> so your column indices may not be as expected.</p>
+<h1 id="bugs"><span class="header-section-number">7</span> Bugs</h1>
+<p>Yes.</p>
+<ul>
+<li><p>Dates: the intervals for date values on the x-axis are a bit odd - they align with juliandays which don’t come out very nicely as dates. Also only ISO dates (YYYY-MM-DD) are recognised. Datetimes (YYYY-MM-DDTHH:MM:SSZ) aren’t recognised and should be really.</p></li>
+<li><p>The area of the graph is 500px square. Margins, position of the key, choice of line colours, point shapes etc etc are all fixed. There are already too many options for what is intended to be a quick fire and forget program with disposable output.</p></li>
+<li><p>A csvToGraph.rc file to store default configurations might be a good idea.</p></li>
+<li><p>A default output file might be a good idea? The point of writing to stdout is to enable further processing, but it’s hard to see what further processing could be done.</p></li>
+<li><p>The ability to specify input columns and the x value column might be handy, but again we’re getting further into featuritis. I imagine this sort of thing can be handled by existing graph plotting software.</p></li>
+<li><p>The key only accomodates about 25 columns. (colour, shapes) repeat in multiples of 42 columns.</p></li>
+<li><p>Using -nohead when there are, in fact, headings present will lead to confusion and dismay.</p></li>
+<li><p>-excl n fails silently when n is greater than the number of columns. That is to say, everything works perfectly but the 4000th column isn’t excluded because it isn’t there.</p></li>
+</ul>
+<h1 id="programmers-notes"><span class="header-section-number">8</span> Programmer’s Notes</h1>
+<p>The csv is parsed and individual fields are assigned types as real, date, text or empty. Columns are assigned types consistent with their contents, text being the catch-all choice.</p>
+<p>Maxima and minima for columns are computed (requests to show the x or y axes effectively insert fake maxima or minima at x = 0 or y = 0) and the axes are scaled and bounded in orders of magnitude, eg. data from 0 to 101 will be scaled as hundreds with limits at 0 and 200. This is annoying but easy to implement.</p>
+<p>Line and point colours are cycled through black, red, green, blue, cyan, magenta and yellow(ish); point shapes through circle, square, triangle, diamond, inverted triangle and cross. Colours have period 7 and shapes have period 6 so they repeat after column 42. If you don’t show points then line colours repeat every 7 columns.</p>
+<h2 id="source"><span class="header-section-number">8.1</span> Source</h2>
+<p>The source for this is C++ with some generated C files.</p>
+<p>csvToGraph depends on two parsers, one to decipher the command line the other to deal with the csv input. These are a whole other kettle of worms and I’ve only included the lex and yacc output files for them.</p>
+<p><code>main.cpp</code> deals with the command line and gets the data into columns. <code>Graphing</code> is the overall class which essentially holds the output parameters for class <code>SvgWriter</code>. <code>SvgWriter</code> uses <code>Bounds</code> to compute scaling and limits and then writes the SVG.</p>
+<p>Computing the bounds and drawing the lines turned out to be surprisingly time consuming to implement.</p>
+<p>I haven’t tried any optimisation and I strive for relatively simple minded programming, so things may be a little slow under load: it will handle approx 500K, 5 columns 20,000 rows in 5 seconds or so, definitely not in the big data league.</p>
+<h1 id="building"><span class="header-section-number">9</span> Building</h1>
+<p>You need the GNU g++ compiler. This is standard on linux, on windows there is the MSYS distribution.</p>
+<p>On windows use <code>build.bat</code>, on linux <code>build.sh</code></p>
+<p>I don’t do <code>make</code> because I can never remember where the <code>TAB</code> has to go, nor what all the macros mean. Life is too short.</p>
+<h1 id="colophon"><span class="header-section-number">10</span> Colophon</h1>
+<p>
+Produced with:
+</p>
+<pre>
+pp csvToGraph.md | %pandoc% --self-contained  --toc -N -c devDoc.css -s -t html5 -o csvToGraph.html
+ 
+2021-01-25 09:15:47
+</pre>
+</body>
+</html>

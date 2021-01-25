@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+xmlns:ev="http://www.w3.org/2001/xml-events"
+ width="1100"
+ height="750"
+>
+<!--
+src   : example.csv
+nopt  : false
+noax  : false
+nojoin: false
+nohead: false
+nokey : false
+nolin : false
+nopap : false
+x0    : false
+y0    : false
+verbose  : false
+xIsOrdinal  : false
+x bounds:
+userLo      : -2.000000
+userHi      : 2.000000
+boundLo     : -2.000000
+boundHi     : 2.000000
+magnitude   : 1.000000
+y bounds:
+userLo      : -8.000000
+userHi      : 8.000000
+boundLo     : -10.000000
+boundHi     : 10.000000
+magnitude   : 10.000000
+userToGraph:
+minX        : -2.000000
+minY        : -10.000000
+xScaleFactor: 125.000000
+yScaleFactor: 25.000000
+xGridSpacing: 125.000000px
+yGridSpacing: 250.000000px
+-->
+<g transform="translate(350,350)">
+<!-- graph paper -->
+<g>
+    <path title="HGrid" stroke="grey" stroke-dasharray="5, 5" 
+    d="M -250 250 h 500 M -250 125 h 500 M -250 -0 h 500 M -250 -125 h 500 
+    M -250 -250 h 500 "/>
+</g>
+<g>
+    <path title="VGrid" stroke="grey" stroke-dasharray="5, 5" 
+    d="M -250 250 v -500 M -125 250 v -500 M 0 250 v -500 M 125 250 v -500 
+    M 250 250 v -500 "/>
+</g>
+<!-- axes -->
+<!-- x axis -->
+<g>
+    <path stroke="dimgrey" stroke-width="2" fill="none" title="x axis"
+    d="M-250.000000 -0.000000 L250.000000 -0.000000 "/>
+    <!-- x axis labels -->
+    <text text-anchor="middle" font-size="16px" x="-250.000000" y="20.000000" fill="black">-2.0</text>
+    <text text-anchor="middle" font-size="16px" x="-125.000000" y="20.000000" fill="black">-1.0</text>
+    <text text-anchor="middle" font-size="16px" x="0.000000" y="20.000000" fill="black">0.0</text>
+    <text text-anchor="middle" font-size="16px" x="125.000000" y="20.000000" fill="black">1.0</text>
+    <text text-anchor="middle" font-size="16px" x="250.000000" y="20.000000" fill="black">2.0</text>
+    <text font-size="24px" x="300.000000" y="20.000000" fill="black">x</text>
+</g>
+<!-- y axis -->
+<g>
+    <path stroke="dimgrey" stroke-width="2" fill="none" title="y axis"
+    d="M0.000000 250.000000 L0.000000 -250.000000 "/>
+    <!-- y axis labels -->
+    <text text-anchor="end" font-size="16px" x="-10.000000" y="256.000000" fill="black">-10</text>
+    <text text-anchor="end" font-size="16px" x="-10.000000" y="131.000000" fill="black">-5</text>
+    <text text-anchor="end" font-size="16px" x="-10.000000" y="6.000000" fill="black">0</text>
+    <text text-anchor="end" font-size="16px" x="-10.000000" y="-119.000000" fill="black">5</text>
+    <text text-anchor="end" font-size="16px" x="-10.000000" y="-244.000000" fill="black">10</text>
+</g>
+<!-- lines -->
+<g>
+    <!-- line for column x^2 -->
+    <path stroke="black" stroke-width="2" fill="none" title="x^2"
+    d="M-250.000000 -100.000000 L-237.500000 -90.250000 L-225.000000 -81.000000 L-212.500000 -72.250000 
+    L-200.000000 -64.000000 L-187.500000 -56.250000 L-175.000000 -49.000000 L-162.500000 -42.250000 
+    L-150.000000 -36.000000 L-137.500000 -30.250000 L-125.000000 -25.000000 L-112.500000 -20.250000 
+    L-100.000000 -16.000000 L-87.500000 -12.250000 L-75.000000 -9.000000 L-62.500000 -6.250000 
+    L-50.000000 -4.000000 L-37.500000 -2.250000 L-25.000000 -1.000000 L-12.500000 -0.250000 
+    L0.000000 -0.000000 L12.500000 -0.250000 L25.000000 -1.000000 L37.500000 -2.250000 
+    L50.000000 -4.000000 L62.500000 -6.250000 L75.000000 -9.000000 L87.500000 -12.250000 
+    L100.000000 -16.000000 L112.500000 -20.250000 L125.000000 -25.000000 L137.500000 -30.250000 
+    L150.000000 -36.000000 L162.500000 -42.250000 L175.000000 -49.000000 L187.500000 -56.250000 
+    L200.000000 -64.000000 L212.500000 -72.250000 L225.000000 -81.000000 L237.500000 -90.250000 
+    L250.000000 -100.000000 "/>
+    <!-- line for column x^3 -->
+    <path stroke="red" stroke-width="2" fill="none" title="x^3"
+    d="M-250.000000 200.000000 L-237.500000 171.475000 L-225.000000 145.800000 L-212.500000 122.825000 
+    L-200.000000 102.400000 L-187.500000 84.375000 L-175.000000 68.600000 L-162.500000 54.925000 
+    L-150.000000 43.200000 L-137.500000 33.275000 L-125.000000 25.000000 L-112.500000 18.225000 
+    L-100.000000 12.800000 L-87.500000 8.575000 L-75.000000 5.400000 L-62.500000 3.125000 
+    L-50.000000 1.600000 L-37.500000 0.675000 L-25.000000 0.200000 L-12.500000 0.025000 
+    L0.000000 -0.000000 L12.500000 -0.025000 L25.000000 -0.200000 L37.500000 -0.675000 
+    L50.000000 -1.600000 L62.500000 -3.125000 L75.000000 -5.400000 L87.500000 -8.575000 
+    L100.000000 -12.800000 L112.500000 -18.225000 L125.000000 -25.000000 L137.500000 -33.275000 
+    L150.000000 -43.200000 L162.500000 -54.925000 L175.000000 -68.600000 L187.500000 -84.375000 
+    L200.000000 -102.400000 L212.500000 -122.825000 L225.000000 -145.800000 L237.500000 -171.475000 
+    L250.000000 -200.000000 "/>
+</g>
+<!-- points -->
+<g>
+    <!-- points for column x^2 -->
+    <g>
+    <circle title="x^2 (-2.000000, 4.000000)"  cx="-250.000000" cy="-100.000000" r="5" fill="black"/>
+    <circle title="x^2 (-1.900000, 3.610000)"  cx="-237.500000" cy="-90.250000" r="5" fill="black"/>
+    <circle title="x^2 (-1.800000, 3.240000)"  cx="-225.000000" cy="-81.000000" r="5" fill="black"/>
+    <circle title="x^2 (-1.700000, 2.890000)"  cx="-212.500000" cy="-72.250000" r="5" fill="black"/>
+    <circle title="x^2 (-1.600000, 2.560000)"  cx="-200.000000" cy="-64.000000" r="5" fill="black"/>
+    <circle title="x^2 (-1.500000, 2.250000)"  cx="-187.500000" cy="-56.250000" r="5" fill="black"/>
+    <circle title="x^2 (-1.400000, 1.960000)"  cx="-175.000000" cy="-49.000000" r="5" fill="black"/>
+    <circle title="x^2 (-1.300000, 1.690000)"  cx="-162.500000" cy="-42.250000" r="5" fill="black"/>
+    <circle title="x^2 (-1.200000, 1.440000)"  cx="-150.000000" cy="-36.000000" r="5" fill="black"/>
+    <circle title="x^2 (-1.100000, 1.210000)"  cx="-137.500000" cy="-30.250000" r="5" fill="black"/>
+    <circle title="x^2 (-1.000000, 1.000000)"  cx="-125.000000" cy="-25.000000" r="5" fill="black"/>
+    <circle title="x^2 (-0.900000, 0.810000)"  cx="-112.500000" cy="-20.250000" r="5" fill="black"/>
+    <circle title="x^2 (-0.800000, 0.640000)"  cx="-100.000000" cy="-16.000000" r="5" fill="black"/>
+    <circle title="x^2 (-0.700000, 0.490000)"  cx="-87.500000" cy="-12.250000" r="5" fill="black"/>
+    <circle title="x^2 (-0.600000, 0.360000)"  cx="-75.000000" cy="-9.000000" r="5" fill="black"/>
+    <circle title="x^2 (-0.500000, 0.250000)"  cx="-62.500000" cy="-6.250000" r="5" fill="black"/>
+    <circle title="x^2 (-0.400000, 0.160000)"  cx="-50.000000" cy="-4.000000" r="5" fill="black"/>
+    <circle title="x^2 (-0.300000, 0.090000)"  cx="-37.500000" cy="-2.250000" r="5" fill="black"/>
+    <circle title="x^2 (-0.200000, 0.040000)"  cx="-25.000000" cy="-1.000000" r="5" fill="black"/>
+    <circle title="x^2 (-0.100000, 0.010000)"  cx="-12.500000" cy="-0.250000" r="5" fill="black"/>
+    <circle title="x^2 (0.000000, 0.000000)"  cx="0.000000" cy="-0.000000" r="5" fill="black"/>
+    <circle title="x^2 (0.100000, 0.010000)"  cx="12.500000" cy="-0.250000" r="5" fill="black"/>
+    <circle title="x^2 (0.200000, 0.040000)"  cx="25.000000" cy="-1.000000" r="5" fill="black"/>
+    <circle title="x^2 (0.300000, 0.090000)"  cx="37.500000" cy="-2.250000" r="5" fill="black"/>
+    <circle title="x^2 (0.400000, 0.160000)"  cx="50.000000" cy="-4.000000" r="5" fill="black"/>
+    <circle title="x^2 (0.500000, 0.250000)"  cx="62.500000" cy="-6.250000" r="5" fill="black"/>
+    <circle title="x^2 (0.600000, 0.360000)"  cx="75.000000" cy="-9.000000" r="5" fill="black"/>
+    <circle title="x^2 (0.700000, 0.490000)"  cx="87.500000" cy="-12.250000" r="5" fill="black"/>
+    <circle title="x^2 (0.800000, 0.640000)"  cx="100.000000" cy="-16.000000" r="5" fill="black"/>
+    <circle title="x^2 (0.900000, 0.810000)"  cx="112.500000" cy="-20.250000" r="5" fill="black"/>
+    <circle title="x^2 (1.000000, 1.000000)"  cx="125.000000" cy="-25.000000" r="5" fill="black"/>
+    <circle title="x^2 (1.100000, 1.210000)"  cx="137.500000" cy="-30.250000" r="5" fill="black"/>
+    <circle title="x^2 (1.200000, 1.440000)"  cx="150.000000" cy="-36.000000" r="5" fill="black"/>
+    <circle title="x^2 (1.300000, 1.690000)"  cx="162.500000" cy="-42.250000" r="5" fill="black"/>
+    <circle title="x^2 (1.400000, 1.960000)"  cx="175.000000" cy="-49.000000" r="5" fill="black"/>
+    <circle title="x^2 (1.500000, 2.250000)"  cx="187.500000" cy="-56.250000" r="5" fill="black"/>
+    <circle title="x^2 (1.600000, 2.560000)"  cx="200.000000" cy="-64.000000" r="5" fill="black"/>
+    <circle title="x^2 (1.700000, 2.890000)"  cx="212.500000" cy="-72.250000" r="5" fill="black"/>
+    <circle title="x^2 (1.800000, 3.240000)"  cx="225.000000" cy="-81.000000" r="5" fill="black"/>
+    <circle title="x^2 (1.900000, 3.610000)"  cx="237.500000" cy="-90.250000" r="5" fill="black"/>
+    <circle title="x^2 (2.000000, 4.000000)"  cx="250.000000" cy="-100.000000" r="5" fill="black"/>
+    </g>
+    <!-- points for column x^3 -->
+    <g>
+    <rect title="x^3 (-2.000000, -8.000000)"  x="-254.000000" y="196.000000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-1.900000, -6.859000)"  x="-241.500000" y="167.475000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-1.800000, -5.832000)"  x="-229.000000" y="141.800000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-1.700000, -4.913000)"  x="-216.500000" y="118.825000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-1.600000, -4.096000)"  x="-204.000000" y="98.400000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-1.500000, -3.375000)"  x="-191.500000" y="80.375000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-1.400000, -2.744000)"  x="-179.000000" y="64.600000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-1.300000, -2.197000)"  x="-166.500000" y="50.925000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-1.200000, -1.728000)"  x="-154.000000" y="39.200000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-1.100000, -1.331000)"  x="-141.500000" y="29.275000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-1.000000, -1.000000)"  x="-129.000000" y="21.000000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-0.900000, -0.729000)"  x="-116.500000" y="14.225000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-0.800000, -0.512000)"  x="-104.000000" y="8.800000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-0.700000, -0.343000)"  x="-91.500000" y="4.575000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-0.600000, -0.216000)"  x="-79.000000" y="1.400000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-0.500000, -0.125000)"  x="-66.500000" y="-0.875000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-0.400000, -0.064000)"  x="-54.000000" y="-2.400000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-0.300000, -0.027000)"  x="-41.500000" y="-3.325000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-0.200000, -0.008000)"  x="-29.000000" y="-3.800000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (-0.100000, -0.001000)"  x="-16.500000" y="-3.975000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (0.000000, 0.000000)"  x="-4.000000" y="-4.000000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (0.100000, 0.001000)"  x="8.500000" y="-4.025000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (0.200000, 0.008000)"  x="21.000000" y="-4.200000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (0.300000, 0.027000)"  x="33.500000" y="-4.675000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (0.400000, 0.064000)"  x="46.000000" y="-5.600000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (0.500000, 0.125000)"  x="58.500000" y="-7.125000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (0.600000, 0.216000)"  x="71.000000" y="-9.400000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (0.700000, 0.343000)"  x="83.500000" y="-12.575000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (0.800000, 0.512000)"  x="96.000000" y="-16.800000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (0.900000, 0.729000)"  x="108.500000" y="-22.225000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (1.000000, 1.000000)"  x="121.000000" y="-29.000000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (1.100000, 1.331000)"  x="133.500000" y="-37.275000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (1.200000, 1.728000)"  x="146.000000" y="-47.200000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (1.300000, 2.197000)"  x="158.500000" y="-58.925000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (1.400000, 2.744000)"  x="171.000000" y="-72.600000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (1.500000, 3.375000)"  x="183.500000" y="-88.375000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (1.600000, 4.096000)"  x="196.000000" y="-106.400000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (1.700000, 4.913000)"  x="208.500000" y="-126.825000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (1.800000, 5.832000)"  x="221.000000" y="-149.800000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (1.900000, 6.859000)"  x="233.500000" y="-175.475000" width="9" height="9" fill="red"/>
+    <rect title="x^3 (2.000000, 8.000000)"  x="246.000000" y="-204.000000" width="9" height="9" fill="red"/>
+    </g>
+</g>
+<!-- key -->
+<g>
+    <text font-size="16px" x="540.000000" y="-20.000000" fill="black">x^2</text>
+    <circle  cx="500.000000" cy="-25.000000" r="5" fill="black"/>
+    <path stroke="black" stroke-width="2" fill="none" title=""
+    d="M480.000000 -25.000000 L520.000000 -25.000000 "/>
+    <text font-size="16px" x="540.000000" y="5.000000" fill="red">x^3</text>
+    <rect  x="496.000000" y="-4.000000" width="9" height="9" fill="red"/>
+    <path stroke="red" stroke-width="2" fill="none" title=""
+    d="M480.000000 -0.000000 L520.000000 -0.000000 "/>
+</g>
+</g>
+</svg>
